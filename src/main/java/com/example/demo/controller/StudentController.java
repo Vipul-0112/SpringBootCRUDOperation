@@ -45,6 +45,7 @@ public class StudentController {
 	// build update student REST API
 	@PutMapping("{id}")
 	public ResponseEntity<Student> updateStudent(@PathVariable("id") int id, @RequestBody Student student) {
+		List<String> list=new ArrayList<String>();
 		return new ResponseEntity<Student>(studentService.updateStudent(student, id), HttpStatus.OK);
 	}
 
