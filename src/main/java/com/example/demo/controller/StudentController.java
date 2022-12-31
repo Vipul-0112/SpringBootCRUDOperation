@@ -1,10 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +43,6 @@ public class StudentController {
 	// build update student REST API
 	@PutMapping("{id}")
 	public ResponseEntity<Student> updateStudent(@PathVariable("id") int id, @RequestBody Student student) {
-		List<String> list=new ArrayList<String>();
 		return new ResponseEntity<Student>(studentService.updateStudent(student, id), HttpStatus.OK);
 	}
 
@@ -56,7 +50,6 @@ public class StudentController {
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteStudent(@PathVariable int id) {
 		studentService.deleteStudent(id);
-		Set<Integer> set=new HashSet<Integer>();
 		return new ResponseEntity<String>("Student deleted successfully...", HttpStatus.OK);
 	}
 
